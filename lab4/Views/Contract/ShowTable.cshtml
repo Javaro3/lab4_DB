@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Типы агентов";
+    @model List<Contract>;
+}
+
+<div class="text-center">
+     <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Начало контракта</th>
+            <th>Конец контракта</th>
+            <th>Обязанности</th>
+        </tr>
+        @foreach(var contract in Model) {
+            <tr>
+                <td>
+                    @contract.Id
+                </td>
+                <td>
+                    @contract.StartDeadline.ToShortDateString()
+                </td>
+                <td>
+                    @contract.EndDeadline.ToShortDateString()
+                </td>
+                <td>
+                    @contract.Responsibilities
+                </td>
+            </tr>
+        }
+    </table>
+</div>

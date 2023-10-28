@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Типы агентов";
+    @model List<AgentType>;
+}
+
+<div class="text-center">
+     <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Название</th>
+        </tr>
+        @foreach(var agentType in Model) {
+            <tr>
+                <td>
+                    @agentType.Id
+                </td>
+                <td>
+                    @agentType.Type
+                </td>
+            </tr>
+        }
+    </table>
+</div>

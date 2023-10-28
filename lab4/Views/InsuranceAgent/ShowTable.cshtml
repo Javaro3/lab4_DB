@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Типы агентов";
+    @model List<InsuranceAgent>;
+}
+
+<div class="text-center">
+     <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Тип агента</th>
+            <th>Зарплата</th>
+            <th>Начало контракта</th>
+            <th>Конец контракта</th>
+            <th>Обязанности</th>
+            <th>Процент от сделки</th>
+        </tr>
+        @foreach(var insuranceAgent in Model) {
+            <tr>
+                <td>
+                    @insuranceAgent.Id
+                </td>
+                <td>
+                    @insuranceAgent.Surname
+                </td>
+                <td>
+                    @insuranceAgent.Name
+                </td>
+                <td>
+                    @insuranceAgent.MiddleName
+                </td>
+                <td>
+                    @insuranceAgent.AgentTypeNavigation.Type
+                </td>
+                <td>
+                    @insuranceAgent.Salary
+                </td>
+                <td>
+                    @insuranceAgent.ContractNavigation.StartDeadline.ToShortDateString()
+                </td>
+                <td>
+                    @insuranceAgent.ContractNavigation.EndDeadline.ToShortDateString()
+                </td>
+                <td>
+                    @insuranceAgent.ContractNavigation.Responsibilities
+                </td>
+                <td>
+                    @insuranceAgent.TransactionPercent
+                </td>
+            </tr>
+        }
+    </table>
+</div>
