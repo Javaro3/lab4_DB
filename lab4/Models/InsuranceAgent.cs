@@ -10,15 +10,15 @@ public partial class InsuranceAgent
 
     public string MiddleName { get; set; } = null!;
 
-    public int AgentType { get; set; }
+    public int AgentTypeId { get; set; }
 
     public decimal Salary { get; set; }
 
-    public int Contract { get; set; }
+    public int ContractId { get; set; }
 
     public double TransactionPercent { get; set; }
 
-    public virtual AgentType AgentTypeNavigation { get; set; } = null!;
+    public virtual AgentType AgentType { get; set; } = null!;
 
-    public virtual Contract ContractNavigation { get; set; } = null!;
+    public virtual Contract Contract { get; set; } = null!;
 }

@@ -13,8 +13,8 @@ namespace lab4.Controllers {
         [ResponseCache(CacheProfileName = "ModelCache")]
         public IActionResult ShowTable() {
             var insuranceAgents = db.InsuranceAgents
-                .Include(ia => ia.AgentTypeNavigation)
-                .Include(ia => ia.ContractNavigation);
+                .Include(ia => ia.AgentType)
+                .Include(ia => ia.Contract);
             return View(insuranceAgents);
         }
     }
