@@ -12,7 +12,7 @@ namespace lab4.Controllers
 
         [ResponseCache(CacheProfileName = "ModelCache")]
         public IActionResult ShowTable() {
-            var agentTypes = db.AgentTypes.ToList();
+            var agentTypes = db.AgentTypes;
             return View(agentTypes);
         }
     }

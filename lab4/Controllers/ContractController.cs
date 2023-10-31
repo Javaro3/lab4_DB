@@ -11,7 +11,7 @@ namespace lab4.Controllers {
 
         [ResponseCache(CacheProfileName = "ModelCache")]
         public IActionResult ShowTable() {
-            var contracts = db.Contracts.ToList();
+            var contracts = db.Contracts;
             return View(contracts);
         }
     }

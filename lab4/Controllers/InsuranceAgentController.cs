@@ -14,8 +14,7 @@ namespace lab4.Controllers {
         public IActionResult ShowTable() {
             var insuranceAgents = db.InsuranceAgents
                 .Include(ia => ia.AgentTypeNavigation)
-                .Include(ia => ia.ContractNavigation)
-                .ToList();
+                .Include(ia => ia.ContractNavigation);
             return View(insuranceAgents);
         }
     }
