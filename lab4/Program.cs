@@ -1,3 +1,4 @@
+using lab4;
 using lab4.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,8 @@ internal class Program {
 
         string connectionString = builder.Configuration.GetConnectionString("MSSQL");
         builder.Services.AddDbContext<InsuranceCompanyContext>(option => option.UseSqlServer(connectionString));
+        builder.Services.AddDistributedMemoryCache();
+        builder.Services.AddSession();
         builder.Services.AddControllersWithViews(options => {
             options.CacheProfiles.Add("ModelCache",
                 new CacheProfile() {
@@ -23,9 +26,9 @@ internal class Program {
         }
 
         app.UseStaticFiles();
-
+        app.UseSession();
+        app.UseDbInitializerMiddleware();
         app.UseRouting();
-
         app.UseAuthorization();
 
         app.MapControllerRoute(
